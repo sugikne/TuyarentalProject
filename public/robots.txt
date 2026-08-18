@@ -1,0 +1,27 @@
+# robots.txt for Tuya Rental Nusa Penida
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Explicitly allow AI Web Crawlers & Large Language Models
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap & AI LLM Manifests
+Sitemap: https://tuyarentalnusapenida.com/sitemap.xml
+LLM: https://tuyarentalnusapenida.com/llms.txt

@@ -1,0 +1,29 @@
+# Tuya Rental Nusa Penida
+
+> Tuya Rental Nusa Penida is a premier tour operator and vehicle rental service in Nusa Penida, Bali, Indonesia. We offer private air-conditioned car tours, guided motorbike riding tours, and daily scooter rentals for tourists exploring Nusa Penida island.
+
+## Key Offerings & Services
+
+- **Private AC Car Tour (West Nusa Penida)**: IDR 750,000 / tour. Includes private car, driver, fuel, fastboat tickets from Sanur harbor, entrance fees, and lunch. Route: Kelingking Beach, Broken Beach, Angel's Billabong, Crystal Bay.
+- **Private AC Car Tour (East Nusa Penida)**: IDR 800,000 / tour. Includes private car, driver, fuel, fastboat tickets from Sanur harbor, entrance fees, and lunch. Route: Diamond Beach, Atuh Beach, Thousand Islands Treehouse, Giri Putri Cave.
+- **Guided Motorbike Tour (West Side Riding)**: IDR 350,000 / person. Guided motor tour exploring Kelingking Cliff & Broken Beach with local rider guide and SNI helmet.
+- **Guided Motorbike Tour (East Side Riding)**: IDR 400,000 / person. Guided motor tour visiting Diamond Beach & Atuh Beach with local rider guide and SNI helmet.
+- **Daily Scooter Rental (Honda Vario 125cc)**: IDR 150,000 / day. Includes 2 SNI helmets, raincoats, full tank starting fuel, 24/7 roadside assistance, and harbor delivery/pickup.
+- **Daily Scooter Rental (Honda Scoopy 110cc)**: IDR 100,000 / day. Includes 2 stylish helmets, raincoat, top engine condition, and harbor delivery/pickup.
+
+## Location & Contact Information
+
+- **Brand Name**: Tuya Rental Nusa Penida (formerly Nusa Penida Motor Trip)
+- **Primary Service Locations**: Toya Pakeh Harbor & Sanur Harbor, Bali, Indonesia
+- **WhatsApp / Phone**: +62 857 3787 2793
+- **Email**: hello@nusapenidatrip.com
+- **Website**: https://tuyarentalnusapenida.com
+- **Operating Hours**: Monday - Sunday, 06:00 - 21:00 WITA (GMT+8)
+- **Payment Methods**: Cash on arrival, DANA, GoPay, PayPal (No advance deposit required)
+
+## Links & Full Documentation
+
+- [Full AI Documentation](https://tuyarentalnusapenida.com/llms-full.txt): Comprehensive breakdown of itineraries, terms, and FAQs for AI agents.
+- [Tour Packages](https://tuyarentalnusapenida.com/packages): View all tour options and destinations.
+- [Scooter Rentals](https://tuyarentalnusapenida.com/rental): View motorbike fleet and daily rental rates.
+- [Contact Us](https://tuyarentalnusapenida.com/contact): Direct contact and WhatsApp booking.
