@@ -144,7 +144,7 @@ export default function BlogDetail() {
           {/* Action CTA Card */}
           <div className="bg-brand-navy text-white p-8 sm:p-12 rounded-[2.5rem] relative overflow-hidden shadow-2xl">
             <div className="relative z-10 max-w-xl">
-              <span className="text-brand-orange text-xs font-bold uppercase tracking-widest block mb-2">
+              <span className="text-white text-xs font-bold uppercase tracking-widest block mb-2">
                 {currentLang === 'id' ? 'SIAP BERPETUALANG?' : 'READY FOR YOUR TRIP?'}
               </span>
               <h3 className="text-2xl sm:text-3xl font-display font-bold mb-4 leading-tight">
@@ -159,7 +159,7 @@ export default function BlogDetail() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/packages">
-                  <Button className="bg-brand-orange hover:bg-brand-orange/90 text-white font-bold rounded-2xl px-6 py-6 text-sm flex items-center gap-2">
+                  <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold rounded-2xl px-6 py-6 text-sm flex items-center gap-2">
                     <Car size={18} />
                     {currentLang === 'id' ? 'Paket Tour Mobil' : 'View Car Packages'}
                   </Button>

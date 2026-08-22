@@ -82,7 +82,7 @@ export default function Packages() {
         >
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="max-w-2xl">
-              <span className="text-brand-orange font-bold text-xs uppercase tracking-widest block mb-2">
+              <span className="text-brand-blue font-bold text-xs uppercase tracking-widest block mb-2">
                 {t('pkg_tag')}
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-display font-bold tracking-tight mb-3">
@@ -162,7 +162,7 @@ export default function Packages() {
                 { type: 'category', value: activeCategory !== 'All' ? `${activeCategory} Penida` : null, clear: () => setActiveCategory('All') }
               ].filter(f => f.value).map(filter => (
                 <span key={filter.type} className="inline-flex items-center gap-1.5 bg-brand-navy text-white px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-                  {filter.Icon && <filter.Icon className="w-3.5 h-3.5 text-brand-orange" />}
+                  {filter.Icon && <filter.Icon className="w-3.5 h-3.5 text-white" />}
                   <span>{filter.value}</span>
                   <button 
                     onClick={filter.clear} 
@@ -178,7 +178,7 @@ export default function Packages() {
                   setActiveVehicleType('All');
                   setActiveCategory('All');
                 }}
-                className="text-xs font-bold text-brand-orange hover:underline px-2 py-1"
+                className="text-xs font-bold text-brand-blue hover:underline px-2 py-1"
               >
                 {t('reset_filters')}
               </button>
@@ -252,7 +252,7 @@ export default function Packages() {
                   <div className="lg:w-1/2 p-5 sm:p-8 flex flex-col justify-between">
                     <div>
                       <div className="flex justify-between items-center mb-3">
-                        <div className="flex items-center text-brand-orange text-xs font-bold bg-brand-orange/10 px-2 py-0.5 rounded-lg">
+                        <div className="flex items-center text-brand-blue text-xs font-bold bg-brand-blue/10 px-2 py-0.5 rounded-lg">
                           <Star className="w-3.5 h-3.5 fill-current mr-1" /> {item.rating}
                         </div>
                         <div className="flex items-center gap-1 text-xs font-bold text-slate-500 uppercase tracking-wider">
@@ -313,13 +313,7 @@ export default function Packages() {
                         </span>
                       </div>
                       <BookingDialog type={isRental ? "rental" : "package"} itemName={item.name}>
-                        <Button className={`rounded-xl px-4 sm:px-5 h-9 sm:h-10 text-xs sm:text-sm font-bold text-white transition-all shadow-md ${
-                          isCar 
-                            ? 'bg-emerald-600 hover:bg-emerald-700 shadow-emerald-600/20' 
-                            : isMotor 
-                            ? 'bg-amber-600 hover:bg-amber-700 shadow-amber-600/20' 
-                            : 'bg-sky-600 hover:bg-sky-700 shadow-sky-600/20'
-                        }`}>
+                        <Button className="rounded-xl px-4 sm:px-5 h-9 sm:h-10 text-xs sm:text-sm font-bold text-white transition-all bg-brand-blue hover:bg-brand-blue/90 shadow-md shadow-brand-blue/20">
                           {isRental ? t('rent_bike') : t('book_trip')}
                         </Button>
                       </BookingDialog>

@@ -82,7 +82,7 @@ export default function Rental() {
                     <div className="space-y-3 mb-8">
                       {bike.inclusions.map((item, i) => (
                         <div key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CheckCircle2 size={16} className="text-brand-orange shrink-0" /> {item}
+                          <CheckCircle2 size={16} className="text-emerald-500 shrink-0" /> {item}
                         </div>
                       ))}
                     </div>
@@ -91,7 +91,7 @@ export default function Rental() {
 
                 <div className="p-8 pt-0">
                   <BookingDialog type="rental" itemName={bike.name}>
-                    <Button className="w-full bg-brand-navy hover:bg-brand-blue text-white rounded-2xl py-6 shadow-lg font-bold">
+                    <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white rounded-2xl py-6 shadow-lg shadow-brand-blue/20 font-bold">
                       {t('rent_this_bike')}
                     </Button>
                   </BookingDialog>
@@ -112,7 +112,7 @@ export default function Rental() {
           <div className="flex flex-col md:flex-row gap-12">
             <div className="md:w-1/3">
               <h2 className="text-3xl font-display font-bold mb-4">{t('rental_req_title')}</h2>
-              <div className="w-20 h-1 bg-brand-orange rounded-full mb-6" />
+              <div className="w-20 h-1 bg-brand-blue rounded-full mb-6" />
               <p className="text-muted-foreground leading-relaxed">
                 {t('rental_req_desc')}
               </p>

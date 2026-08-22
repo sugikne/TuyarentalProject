@@ -81,7 +81,7 @@ export default function PackageDetail() {
                 <span className="text-sm font-bold">{pkg.destinations.length} {currentLang === 'id' ? 'Tempat' : 'Stops'}</span>
               </div>
               <div className="bg-white p-4 rounded-2xl border border-border flex flex-col items-center text-center">
-                <Star className="w-5 h-5 text-brand-orange mb-2" />
+                <Star className="w-5 h-5 text-brand-blue mb-2" />
                 <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{t('rating')}</span>
                 <span className="text-sm font-bold">{pkg.rating} / 5</span>
               </div>

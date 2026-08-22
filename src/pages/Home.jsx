@@ -31,9 +31,9 @@ export default function Home() {
             <motion.span 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-brand-orange font-bold tracking-[0.2em] uppercase text-xs mb-6 flex items-center gap-3"
+              className="text-white font-bold tracking-[0.2em] uppercase text-xs mb-6 flex items-center gap-3"
             >
-              <span className="w-8 h-px bg-brand-orange"></span> {t('hero_tag')}
+              <span className="w-8 h-px bg-white"></span> {t('hero_tag')}
             </motion.span>
             
             <motion.h1 
@@ -60,7 +60,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <Link to="/packages">
-                <Button size="lg" className="bg-brand-orange hover:bg-brand-orange/90 text-white rounded-full px-8 py-6 text-base font-bold shadow-xl shadow-brand-orange/30 group">
+                <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white rounded-full px-8 py-6 text-base font-bold shadow-xl shadow-brand-blue/30 group">
                   {t('hero_cta')}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -83,7 +83,7 @@ export default function Home() {
             className="flex items-center justify-between"
           >
             <div>
-              <span className="text-brand-orange text-xs font-bold uppercase tracking-widest block mb-1">
+              <span className="text-brand-blue text-xs font-bold uppercase tracking-widest block mb-1">
                 {t('pkg_tag')}
               </span>
               <h2 className="text-2xl sm:text-3xl font-display font-bold text-brand-navy">
@@ -172,9 +172,7 @@ export default function Home() {
                         <span className="text-brand-navy font-black text-lg">IDR {pkg.price/1000}K</span>
                       </div>
                       <BookingDialog type="package" itemName={pkg.name}>
-                        <Button className={`text-xs font-bold text-white rounded-xl px-5 h-9 ${
-                          isCar ? 'bg-emerald-600 hover:bg-emerald-700' : 'bg-amber-600 hover:bg-amber-700'
-                        }`}>
+                        <Button className="text-xs font-bold text-white rounded-xl px-5 h-9 bg-brand-blue hover:bg-brand-blue/90 shadow-md shadow-brand-blue/20">
                           {t('book_trip')}
                         </Button>
                       </BookingDialog>
@@ -196,7 +194,7 @@ export default function Home() {
             className="bg-brand-navy text-white p-8 rounded-3xl relative overflow-hidden"
           >
             <div className="relative z-10">
-              <h3 className="font-display font-bold text-xl mb-6 text-brand-orange">{t('why_us_title')}</h3>
+              <h3 className="font-display font-bold text-xl mb-6 text-white">{t('why_us_title')}</h3>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-brand-blue/20 flex items-center justify-center shrink-0">

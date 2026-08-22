@@ -12,7 +12,7 @@ export default function Admin() {
       <aside className="w-64 bg-white border-r border-border hidden lg:flex flex-col">
         <div className="p-6 border-b border-border">
           <span className="text-xl font-display font-bold text-brand-blue tracking-tighter">
-            NUSA<span className="text-brand-orange">ADMIN</span>
+            NUSA<span className="text-brand-navy">ADMIN</span>
           </span>
         </div>
         <nav className="flex-1 p-4 space-y-2">

@@ -101,7 +101,7 @@ export default function BookingSuccess() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/" className="flex-1">
-                <Button className="w-full bg-brand-navy hover:bg-brand-blue text-white py-6 rounded-2xl font-bold transition-all flex items-center justify-center gap-2">
+                <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white py-6 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/20">
                   {t('back_to_home')} <ArrowRight size={18} />
                 </Button>
               </Link>

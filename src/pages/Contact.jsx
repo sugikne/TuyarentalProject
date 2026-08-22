@@ -68,7 +68,7 @@ export default function Contact() {
                   placeholder="How can we help you?"
                 ></textarea>
               </div>
-              <Button className="w-full bg-brand-blue hover:bg-brand-orange py-6 rounded-2xl text-base font-bold transition-colors" type="button">
+              <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white py-6 rounded-2xl text-base font-bold transition-colors shadow-lg shadow-brand-blue/20" type="button">
                 {t('send_btn')} <Send className="ml-2 h-4 w-4" />
               </Button>
             </form>

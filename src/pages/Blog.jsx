@@ -36,7 +36,7 @@ export default function Blog() {
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <span className="text-brand-orange font-bold text-xs uppercase tracking-widest block mb-2">
+          <span className="text-brand-blue font-bold text-xs uppercase tracking-widest block mb-2">
             NUSA PENIDA INSIDER GUIDES
           </span>
           <h1 className="text-4xl md:text-6xl font-display font-bold tracking-tighter mb-4 text-brand-navy">
@@ -148,7 +148,7 @@ export default function Blog() {
                       
                       <Link 
                         to={`/blog/${post.id}`}
-                        className="text-xs font-bold text-brand-blue hover:text-brand-orange flex items-center gap-1 transition-colors"
+                        className="text-xs font-bold text-brand-blue hover:text-brand-blue/80 flex items-center gap-1 transition-colors"
                       >
                         {currentLang === 'id' ? 'Baca Selengkapnya' : 'Read Article'} <ChevronRight size={16} />
                       </Link>

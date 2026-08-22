@@ -33,60 +33,60 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/80 backdrop-blur-md border-b border-slate-200 py-2' 
-          : 'bg-white/50 backdrop-blur-sm md:bg-transparent py-4 md:py-6'
+          ? 'bg-white/90 backdrop-blur-md border-b border-slate-200/80 py-2 shadow-sm' 
+          : 'bg-white/80 backdrop-blur-md py-4 md:py-6 border-b border-slate-100'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-brand-blue rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12">
+            <div className="w-8 h-8 bg-brand-blue rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12 shadow-sm">
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
               </svg>
             </div>
-            <span className="text-xl font-display font-bold text-brand-navy tracking-tight">
+            <span className="text-xl font-display font-bold text-black tracking-tight">
               Tuya<span className="text-brand-blue">Rental</span>
             </span>
           </Link>
 
           {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
-            <Link to="/packages" className="text-sm font-semibold text-slate-600 hover:text-brand-blue transition-colors">
+            <Link to="/packages" className="text-sm font-semibold text-black hover:text-brand-blue transition-colors">
               {t('nav_packages')}
             </Link>
-            <Link to="/rental" className="text-sm font-semibold text-slate-600 hover:text-brand-blue transition-colors">
+            <Link to="/rental" className="text-sm font-semibold text-black hover:text-brand-blue transition-colors">
               {t('nav_rental')}
             </Link>
-            <Link to="/blog" className="text-sm font-semibold text-slate-600 hover:text-brand-blue transition-colors">
+            <Link to="/blog" className="text-sm font-semibold text-black hover:text-brand-blue transition-colors">
               {t('nav_blog')}
             </Link>
-            <Link to="/about" className="text-sm font-semibold text-slate-600 hover:text-brand-blue transition-colors">
+            <Link to="/about" className="text-sm font-semibold text-black hover:text-brand-blue transition-colors">
               {t('nav_about')}
             </Link>
             
             <div className="flex items-center gap-4 ml-4">
-              <div className="h-4 w-px bg-slate-300 mx-2"></div>
+              <div className="h-4 w-px bg-slate-200 mx-2"></div>
               
               {/* Desktop Language Toggle */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="gap-1.5 text-slate-700 font-extrabold text-xs uppercase tracking-wider bg-slate-100/80 hover:bg-slate-200/80 rounded-full px-3 h-8">
+                  <Button variant="ghost" size="sm" className="gap-1.5 text-black font-extrabold text-xs uppercase tracking-wider bg-slate-100/80 hover:bg-slate-200/80 rounded-full px-3 h-8 border border-slate-200/60">
                     <Globe className="h-3.5 w-3.5 text-brand-blue" />
                     <span>{currentLang === 'id' ? 'ID' : 'EN'}</span>
                     <ChevronDown className="h-3 w-3 opacity-60" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-36 rounded-xl p-1">
+                <DropdownMenuContent align="end" className="w-36 rounded-xl p-1 bg-white border border-slate-200 text-black shadow-lg">
                   <DropdownMenuItem 
                     onClick={() => changeLanguage('en')}
-                    className={`rounded-lg cursor-pointer text-xs font-semibold ${currentLang === 'en' ? 'bg-brand-blue/10 text-brand-blue' : ''}`}
+                    className={`rounded-lg cursor-pointer text-xs font-semibold hover:bg-slate-100 ${currentLang === 'en' ? 'bg-brand-blue/10 text-brand-blue' : 'text-slate-800'}`}
                   >
                     🇬🇧 English (EN)
                   </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={() => changeLanguage('id')}
-                    className={`rounded-lg cursor-pointer text-xs font-semibold ${currentLang === 'id' ? 'bg-brand-blue/10 text-brand-blue' : ''}`}
+                    className={`rounded-lg cursor-pointer text-xs font-semibold hover:bg-slate-100 ${currentLang === 'id' ? 'bg-brand-blue/10 text-brand-blue' : 'text-slate-800'}`}
                   >
                     🇮🇩 Indonesia (ID)
                   </DropdownMenuItem>
@@ -94,7 +94,7 @@ export default function Navbar() {
               </DropdownMenu>
 
               <Link to="/packages">
-                <Button className="bg-brand-orange text-white px-6 py-2 rounded-full font-bold shadow-lg shadow-brand-orange/20 hover:bg-brand-orange/90 transition-all hover:-translate-y-0.5 text-xs">
+                <Button className="bg-brand-blue text-white px-6 py-2 rounded-full font-bold shadow-lg shadow-brand-blue/20 hover:bg-brand-blue/90 transition-all hover:-translate-y-0.5 text-xs">
                   {t('nav_book')}
                 </Button>
               </Link>
@@ -106,13 +106,13 @@ export default function Navbar() {
             {/* Mobile Language Toggle */}
             <button
               onClick={() => changeLanguage(currentLang === 'en' ? 'id' : 'en')}
-              className="flex items-center gap-1.5 bg-slate-100 text-slate-800 text-xs font-extrabold px-3 py-1.5 rounded-full border border-slate-200"
+              className="flex items-center gap-1.5 bg-slate-100 text-black text-xs font-extrabold px-3 py-1.5 rounded-full border border-slate-200"
             >
               <Globe className="h-3.5 w-3.5 text-brand-blue" />
               <span>{currentLang === 'id' ? 'ID' : 'EN'}</span>
             </button>
 
-            <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+            <Button variant="ghost" size="icon" className="text-black hover:bg-slate-100" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               {isMobileMenuOpen ? <X /> : <Menu />}
             </Button>
           </div>
@@ -121,28 +121,28 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-dark absolute top-full left-0 right-0 p-6 border-t border-white/10 shadow-2xl animate-in slide-in-from-top">
-          <div className="flex flex-col gap-4 text-white">
-            <Link to="/packages" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-bold py-1 border-b border-white/10 flex items-center justify-between">
+        <div className="md:hidden bg-white/95 backdrop-blur-md absolute top-full left-0 right-0 p-6 border-t border-slate-200 shadow-2xl animate-in slide-in-from-top">
+          <div className="flex flex-col gap-4 text-black">
+            <Link to="/packages" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-bold py-1 border-b border-slate-100 flex items-center justify-between hover:text-brand-blue">
               <span>{t('nav_packages')}</span>
               <span className="text-xs text-brand-blue">→</span>
             </Link>
-            <Link to="/rental" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-bold py-1 border-b border-white/10 flex items-center justify-between">
+            <Link to="/rental" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-bold py-1 border-b border-slate-100 flex items-center justify-between hover:text-brand-blue">
               <span>{t('nav_rental')}</span>
               <span className="text-xs text-brand-blue">→</span>
             </Link>
-            <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-bold py-1 border-b border-white/10 flex items-center justify-between">
+            <Link to="/blog" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-bold py-1 border-b border-slate-100 flex items-center justify-between hover:text-brand-blue">
               <span>{t('nav_blog')}</span>
               <span className="text-xs text-brand-blue">→</span>
             </Link>
-            <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-bold py-1 border-b border-white/10 flex items-center justify-between">
+            <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-bold py-1 border-b border-slate-100 flex items-center justify-between hover:text-brand-blue">
               <span>{t('nav_about')}</span>
               <span className="text-xs text-brand-blue">→</span>
             </Link>
 
             <div className="pt-2">
               <Link to="/packages" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="bg-brand-orange text-white w-full py-3 rounded-full font-bold shadow-lg">
+                <Button className="bg-brand-blue text-white w-full py-3 rounded-full font-bold shadow-lg shadow-brand-blue/20 hover:bg-brand-blue/90">
                   {t('nav_book')}
                 </Button>
               </Link>
