@@ -159,7 +159,7 @@ export const packages = [
     name: 'Full Island 2-Day Private Car Tour',
     description: 'Complete 2-day 1-night tour exploring both West & East sides in a private AC car with hotel stay.',
     description_id: 'Paket lengkap 2 hari 1 malam menjelajahi seluruh destinasi Barat & Timur dengan Mobil AC Private.',
-    price: 1200000,
+    price: 1500000,
     duration: '2 Days',
     duration_id: '2 Hari',
     destinations: ['Kelingking', 'Broken Beach', 'Diamond Beach', 'Tree House', 'Crystal Bay'],
