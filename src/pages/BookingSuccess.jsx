@@ -22,15 +22,15 @@ export default function BookingSuccess() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-white rounded-[3rem] shadow-2xl border border-slate-100 overflow-hidden"
+          className="bg-white rounded-[3rem] border border-slate-200 overflow-hidden"
         >
-          {/* Header Section */}
+          {/* Header Section (no shadow) */}
           <div className="bg-brand-blue/5 p-12 text-center relative overflow-hidden">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: "spring", damping: 12, delay: 0.2 }}
-              className="w-24 h-24 bg-brand-blue rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl shadow-brand-blue/30 relative z-10"
+              className="w-24 h-24 bg-brand-blue rounded-full flex items-center justify-center mx-auto mb-6 relative z-10"
             >
               <CheckCircle2 className="text-white w-12 h-12" />
             </motion.div>
@@ -74,7 +74,7 @@ export default function BookingSuccess() {
                   </div>
                   <div>
                     <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">{t('meeting_point')}</label>
-                    <p className="font-bold text-brand-navy">Toya Pakeh / Sanur Harbour</p>
+                    <p className="font-bold text-brand-navy">{t('meeting_point_val')}</p>
                   </div>
                 </div>
               </div>
@@ -101,7 +101,7 @@ export default function BookingSuccess() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/" className="flex-1">
-                <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white py-6 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/20">
+                <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white py-6 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 border border-transparent">
                   {t('back_to_home')} <ArrowRight size={18} />
                 </Button>
               </Link>
@@ -114,11 +114,9 @@ export default function BookingSuccess() {
                 </Button>
               </div>
             </div>
-          </div>
-          
-          <div className="bg-slate-50 p-6 border-t border-slate-100 text-center">
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-              {t('need_changes')} <span className="text-brand-blue">+62 857 3787 2793</span>
+            
+            <p className="text-center text-xs text-slate-400 mt-8">
+              {t('need_changes')} <span className="font-bold text-brand-navy">+62 857 3787 2793</span>
             </p>
           </div>
         </motion.div>

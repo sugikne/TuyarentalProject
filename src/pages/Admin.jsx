@@ -57,7 +57,7 @@ export default function Admin() {
             { label: 'Active Tours', value: '24', trend: 'Stable', icon: Package },
             { label: 'New Inquiries', value: '18', trend: '+3', icon: Users },
           ].map((stat, i) => (
-            <Card key={i} className="rounded-2xl border-none shadow-sm">
+            <Card key={i} className="rounded-2xl border border-slate-200">
               <CardContent className="p-6">
                 <div className="flex justify-between items-start mb-4">
                   <div className="p-3 bg-muted rounded-xl">
@@ -75,7 +75,7 @@ export default function Admin() {
         </div>
 
         {/* Recent Bookings Table Mockup */}
-        <Card className="rounded-[2rem] border-none shadow-sm overflow-hidden">
+        <Card className="rounded-[2rem] border border-slate-200 overflow-hidden">
           <CardHeader className="bg-white border-b border-border p-6">
             <CardTitle className="text-lg">Recent Bookings</CardTitle>
           </CardHeader>

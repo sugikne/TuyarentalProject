@@ -1,13 +1,14 @@
 import { motion } from 'motion/react';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, Shield, Star, Compass, Car, Bike } from 'lucide-react';
+import { ArrowRight, Shield, Compass, Car, Bike } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { packages } from '@/constants';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SEO from '@/components/SEO';
 import BookingDialog from '@/components/BookingDialog';
 
 export default function Home() {
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language ? i18n.language.substring(0, 2).toLowerCase() : 'en';
 
@@ -60,7 +61,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <Link to="/packages">
-                <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white rounded-full px-8 py-6 text-base font-bold shadow-xl shadow-brand-blue/30 group">
+                <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white rounded-full px-8 py-6 text-base font-bold group border border-transparent">
                   {t('hero_cta')}
                   <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -112,8 +113,8 @@ export default function Home() {
           >
             {packages.map((pkg) => {
               const isCar = pkg.cardType === 'car';
-              const isMotor = pkg.cardType === 'motorcycle';
 
+              const titleText = currentLang === 'id' && pkg.name_id ? pkg.name_id : pkg.name;
               const descriptionText = currentLang === 'id' && pkg.description_id ? pkg.description_id : pkg.description;
               const vehicleNameText = currentLang === 'id' && pkg.vehicleName_id ? pkg.vehicleName_id : pkg.vehicleName;
               const durationText = currentLang === 'id' && pkg.duration_id ? pkg.duration_id : pkg.duration;
@@ -125,17 +126,18 @@ export default function Home() {
                     hidden: { opacity: 0, y: 30, scale: 0.95 },
                     show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
                   }}
-                  className={`group bg-white rounded-3xl overflow-hidden border transition-all hover:shadow-2xl flex flex-col justify-between ${
+                  onClick={() => navigate(`/package/${pkg.id}`)}
+                  className={`group bg-white rounded-3xl overflow-hidden border transition-all flex flex-col justify-between cursor-pointer ${
                     isCar ? 'border-emerald-200 hover:border-emerald-400' : 'border-amber-200 hover:border-amber-400'
                   }`}
                 >
                   <div>
-                    <Link to={`/package/${pkg.id}`} className="h-48 overflow-hidden relative block">
-                      <img src={pkg.image} alt={pkg.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <div className="h-48 overflow-hidden relative block">
+                      <img src={pkg.image} alt={titleText} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                       
                       {/* Vehicle Badge */}
                       <div className="absolute top-4 left-4">
-                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow-md flex items-center gap-1 ${
+                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider flex items-center gap-1 ${
                           isCar ? 'bg-emerald-600 text-white' : 'bg-amber-500 text-white'
                         }`}>
                           {isCar ? <Car className="w-3 h-3" /> : <Bike className="w-3 h-3" />}
@@ -146,7 +148,7 @@ export default function Home() {
                       <div className="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase">
                         {durationText}
                       </div>
-                    </Link>
+                    </div>
                     <div className="p-6">
                       <div className="mb-2">
                         <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${
@@ -157,9 +159,9 @@ export default function Home() {
                       </div>
 
                       <div className="flex justify-between items-start mb-3">
-                        <Link to={`/package/${pkg.id}`} className="hover:text-brand-blue transition-colors">
-                          <h3 className="text-base font-bold text-brand-navy leading-snug">{pkg.name}</h3>
-                        </Link>
+                        <h3 className="text-base font-bold text-brand-navy leading-snug group-hover:text-brand-blue transition-colors">
+                          {titleText}
+                        </h3>
                       </div>
                       <p className="text-slate-500 text-xs mb-4 line-clamp-2 leading-relaxed">{descriptionText}</p>
                     </div>
@@ -171,11 +173,13 @@ export default function Home() {
                         <span className="text-[10px] text-slate-400 block font-bold uppercase">{t('price_package')}</span>
                         <span className="text-brand-navy font-black text-lg">IDR {pkg.price/1000}K</span>
                       </div>
-                      <BookingDialog type="package" itemName={pkg.name}>
-                        <Button className="text-xs font-bold text-white rounded-xl px-5 h-9 bg-brand-blue hover:bg-brand-blue/90 shadow-md shadow-brand-blue/20">
-                          {t('book_trip')}
-                        </Button>
-                      </BookingDialog>
+                      <div onClick={(e) => e.stopPropagation()}>
+                        <BookingDialog type="package" itemName={pkg.name}>
+                          <Button className="text-xs font-bold text-white rounded-xl px-5 h-9 bg-brand-blue hover:bg-brand-blue/90 border border-transparent">
+                            {t('book_trip')}
+                          </Button>
+                        </BookingDialog>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
@@ -224,7 +228,9 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">4.9/5 from 2k+ Guests</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                  {t('guest_reviews_stat')}
+                </span>
               </div>
             </div>
             <div className="absolute top-0 right-0 w-32 h-32 bg-brand-blue/10 blur-[80px] -translate-y-1/2 translate-x-1/2" />
@@ -240,14 +246,16 @@ export default function Home() {
           >
             <h3 className="font-display font-bold text-brand-navy text-xs mb-6 uppercase tracking-wider">{t('fleet_title')}</h3>
             <div className="grid grid-cols-2 gap-4">
-              <div className="bg-slate-50 p-4 rounded-2xl text-center border border-slate-100">
-                <p className="text-[10px] font-bold text-slate-400 mb-1">Vario 125</p>
-                <p className="text-sm font-black text-brand-blue">IDR 100K</p>
-              </div>
-              <div className="bg-slate-50 p-4 rounded-2xl text-center border border-slate-100">
-                <p className="text-[10px] font-bold text-slate-400 mb-1">SCOOPY</p>
-                <p className="text-sm font-black text-brand-navy">IDR 80K</p>
-              </div>
+              <Link to="/rental/vario-125" className="bg-slate-50 hover:bg-sky-50/70 p-4 rounded-2xl text-center border border-slate-200 hover:border-brand-blue/40 transition-all group">
+                <p className="text-[10px] font-bold text-slate-400 group-hover:text-brand-blue mb-1">Vario 125</p>
+                <p className="text-sm font-black text-brand-blue">IDR 150K</p>
+                <span className="text-[10px] text-brand-blue font-semibold mt-1 inline-block opacity-0 group-hover:opacity-100 transition-opacity">Detail →</span>
+              </Link>
+              <Link to="/rental/scoopy-110" className="bg-slate-50 hover:bg-sky-50/70 p-4 rounded-2xl text-center border border-slate-200 hover:border-brand-blue/40 transition-all group">
+                <p className="text-[10px] font-bold text-slate-400 group-hover:text-brand-navy mb-1">SCOOPY</p>
+                <p className="text-sm font-black text-brand-navy">IDR 100K</p>
+                <span className="text-[10px] text-brand-blue font-semibold mt-1 inline-block opacity-0 group-hover:opacity-100 transition-opacity">Detail →</span>
+              </Link>
             </div>
             <Link to="/rental">
               <Button variant="ghost" className="w-full mt-6 text-xs text-slate-500 font-bold hover:text-brand-blue">

@@ -11,16 +11,16 @@ export default function About() {
       <SEO title={`${t('nav_about')} - Nusa Penida Tour`} />
 
       <div className="max-w-7xl mx-auto px-4">
-        {/* Story Section */}
-        <div className="flex flex-col lg:flex-row gap-16 items-center mb-32">
+        {/* Story */}
+        <div className="flex flex-col lg:flex-row gap-16 items-center mb-24">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="lg:w-1/2"
           >
-            <span className="text-brand-blue font-bold uppercase tracking-widest text-xs">{t('about_story_tag')}</span>
-            <h1 className="text-4xl md:text-6xl font-display font-bold tracking-tighter mt-4 mb-8">
+            <span className="text-brand-orange font-bold text-xs uppercase tracking-widest block mb-2">{t('about_story_tag')}</span>
+            <h1 className="text-4xl md:text-6xl font-display font-bold tracking-tighter mb-8 leading-tight">
               {t('about_title')}
             </h1>
             <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
@@ -37,7 +37,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
             className="lg:w-1/2 relative"
           >
-            <div className="rounded-[3rem] overflow-hidden rotate-3 hover:rotate-0 transition-transform duration-500 shadow-2xl">
+            <div className="rounded-[3rem] overflow-hidden rotate-3 hover:rotate-0 transition-transform duration-500 border border-slate-200">
               <img 
                 src="/img/east.jpg" 
                 alt="About us" 
@@ -48,7 +48,7 @@ export default function About() {
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="absolute -bottom-10 -left-10 bg-brand-orange text-white p-8 rounded-3xl hidden md:block shadow-xl"
+              className="absolute -bottom-10 -left-10 bg-brand-orange text-white p-8 rounded-3xl hidden md:block border border-orange-400"
             >
               <span className="text-5xl font-bold font-display">5K+</span>
               <p className="text-sm font-medium opacity-90 uppercase tracking-widest mt-2">{t('happy_adventurers')}</p>
@@ -56,7 +56,7 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Values */}
+        {/* Values (Cards without shadows) */}
         <motion.div 
           initial="hidden"
           whileInView="show"
@@ -84,9 +84,9 @@ export default function About() {
                 hidden: { opacity: 0, y: 20 },
                 show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
               }}
-              className="p-10 bg-brand-navy/5 rounded-[2.5rem] hover:bg-white hover:shadow-xl transition-all border border-transparent hover:border-border"
+              className="p-10 bg-brand-navy/5 rounded-[2.5rem] hover:bg-white transition-all border border-transparent hover:border-slate-200"
             >
-              <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+              <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center mb-6 border border-slate-200">
                 <v.icon className="text-brand-blue" />
               </div>
               <h3 className="text-xl font-bold mb-3">{v.title}</h3>

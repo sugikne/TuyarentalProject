@@ -26,7 +26,7 @@ export default function Contact() {
               {[
                 { icon: Phone, title: t('phone_wa'), value: '+62 857 3787 2793' },
                 { icon: Mail, title: t('email_lbl'), value: 'hello@nusapenidatrip.com' },
-                { icon: MapPin, title: t('location_lbl'), value: 'Sanur Harbor, Bali / Nusa Penida Harbor, Klungkung, Bali' },
+                { icon: MapPin, title: t('location_lbl'), value: t('location_val') },
               ].map((item, i) => (
                 <div key={i} className="flex gap-6 items-center">
                   <div className="w-14 h-14 bg-brand-blue/10 rounded-2xl flex items-center justify-center text-brand-blue shrink-0">
@@ -41,34 +41,34 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Form */}
-          <div className="bg-white p-8 md:p-12 rounded-[3rem] border border-border shadow-xl">
+          {/* Form (no shadow) */}
+          <div className="bg-white p-8 md:p-12 rounded-[3rem] border border-slate-200">
             <h3 className="text-2xl font-bold mb-8">{t('send_msg_title')}</h3>
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <Label htmlFor="name">{t('full_name')}</Label>
-                  <Input id="name" placeholder="John Doe" className="rounded-xl" />
+                  <Input id="name" placeholder="John Doe" className="rounded-xl border-slate-200" />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="email">{t('email_lbl')}</Label>
-                  <Input id="email" type="email" placeholder="john@example.com" className="rounded-xl" />
+                  <Input id="email" type="email" placeholder="john@example.com" className="rounded-xl border-slate-200" />
                 </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="subject">{t('subject')}</Label>
-                <Input id="subject" placeholder="Trip Inquiry" className="rounded-xl" />
+                <Input id="subject" placeholder={t('subject')} className="rounded-xl border-slate-200" />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="message">{t('message')}</Label>
                 <textarea 
                   id="message" 
                   rows={4} 
-                  className="w-full rounded-xl border border-input bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 ring-brand-blue"
-                  placeholder="How can we help you?"
+                  className="w-full rounded-xl border border-slate-200 bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 ring-brand-blue"
+                  placeholder={t('message_placeholder')}
                 ></textarea>
               </div>
-              <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white py-6 rounded-2xl text-base font-bold transition-colors shadow-lg shadow-brand-blue/20" type="button">
+              <Button className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white py-6 rounded-2xl text-base font-bold transition-colors border border-transparent" type="button">
                 {t('send_btn')} <Send className="ml-2 h-4 w-4" />
               </Button>
             </form>

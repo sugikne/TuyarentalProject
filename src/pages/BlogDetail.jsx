@@ -17,8 +17,8 @@ export default function BlogDetail() {
   if (!post) {
     return (
       <div className="pt-32 pb-24 text-center min-h-[60vh] flex flex-col items-center justify-center">
-        <h2 className="text-2xl font-bold mb-4">Article not found</h2>
-        <Button onClick={() => navigate('/blog')}>Back to Blog</Button>
+        <h2 className="text-2xl font-bold mb-4">{currentLang === 'id' ? 'Artikel tidak ditemukan' : 'Article not found'}</h2>
+        <Button onClick={() => navigate('/blog')}>{currentLang === 'id' ? 'Kembali ke Blog' : 'Back to Blog'}</Button>
       </div>
     );
   }
@@ -112,13 +112,13 @@ export default function BlogDetail() {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-brand-navy">{post.author}</p>
-                  <p className="text-xs text-slate-400">Local Travel Expert</p>
+                  <p className="text-xs text-slate-400">{currentLang === 'id' ? 'Pakar Perjalanan Lokal' : 'Local Travel Expert'}</p>
                 </div>
               </div>
 
               <button 
                 onClick={() => navigator.clipboard?.writeText(window.location.href)}
-                className="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-brand-blue bg-slate-50 hover:bg-slate-100 px-4 py-2.5 rounded-xl transition-all"
+                className="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-brand-blue bg-slate-50 hover:bg-slate-100 px-4 py-2.5 rounded-xl transition-all border border-slate-200"
                 title="Copy link"
               >
                 <Share2 size={14} />
@@ -127,8 +127,8 @@ export default function BlogDetail() {
             </div>
           </div>
 
-          {/* Hero Featured Image */}
-          <div className="aspect-[16/9] rounded-3xl overflow-hidden mb-12 shadow-2xl">
+          {/* Hero Featured Image (no shadow) */}
+          <div className="aspect-[16/9] rounded-3xl overflow-hidden mb-12 border border-slate-200">
             <img 
               src={post.image} 
               alt={titleText} 
@@ -141,8 +141,8 @@ export default function BlogDetail() {
             {renderFormattedContent(contentText)}
           </div>
 
-          {/* Action CTA Card */}
-          <div className="bg-brand-navy text-white p-8 sm:p-12 rounded-[2.5rem] relative overflow-hidden shadow-2xl">
+          {/* Action CTA Card (no shadow) */}
+          <div className="bg-brand-navy text-white p-8 sm:p-12 rounded-[2.5rem] relative overflow-hidden border border-slate-800">
             <div className="relative z-10 max-w-xl">
               <span className="text-white text-xs font-bold uppercase tracking-widest block mb-2">
                 {currentLang === 'id' ? 'SIAP BERPETUALANG?' : 'READY FOR YOUR TRIP?'}
@@ -159,7 +159,7 @@ export default function BlogDetail() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link to="/packages">
-                  <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold rounded-2xl px-6 py-6 text-sm flex items-center gap-2">
+                  <Button className="bg-brand-blue hover:bg-brand-blue/90 text-white font-bold rounded-2xl px-6 py-6 text-sm flex items-center gap-2 border border-transparent">
                     <Car size={18} />
                     {currentLang === 'id' ? 'Paket Tour Mobil' : 'View Car Packages'}
                   </Button>

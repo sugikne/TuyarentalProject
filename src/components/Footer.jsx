@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white border-t border-slate-100 pt-20 pb-12">
+    <footer className="bg-white border-t border-slate-200 pt-20 pb-12">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand Column */}
@@ -21,10 +21,10 @@ export default function Footer() {
               {t('footer_desc')}
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-brand-blue hover:text-white transition-all shadow-sm">
+              <a href="#" className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-brand-blue hover:text-white transition-all border border-slate-200">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-brand-blue hover:text-white transition-all shadow-sm">
+              <a href="#" className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-brand-blue hover:text-white transition-all border border-slate-200">
                 <Youtube size={18} />
               </a>
             </div>
@@ -78,7 +78,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Info (Direct Nusa Penida harbor, no Sanur) */}
           <div>
             <h4 className="text-brand-navy font-bold text-sm uppercase tracking-widest mb-8">{t('contact_header')}</h4>
             <ul className="space-y-6">
@@ -87,7 +87,7 @@ export default function Footer() {
                   <MapPin size={16} />
                 </div>
                 <p className="text-slate-500 text-sm leading-relaxed">
-                  Sanur Harbor, Bali / Nusa Penida Harbor, Klungkung, Bali
+                  {t('location_val')}
                 </p>
               </li>
               <li className="flex items-center gap-3">

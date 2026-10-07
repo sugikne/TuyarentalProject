@@ -9,6 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import BookingDialog from '@/components/BookingDialog';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,14 +34,14 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-white/90 backdrop-blur-md border-b border-slate-200/80 py-2 shadow-sm' 
-          : 'bg-white/80 backdrop-blur-md py-4 md:py-6 border-b border-slate-100'
+          ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 py-2.5' 
+          : 'bg-white/90 backdrop-blur-md py-4 md:py-6 border-b border-slate-100'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-brand-blue rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12 shadow-sm">
+            <div className="w-8 h-8 bg-brand-blue rounded-lg flex items-center justify-center transition-transform group-hover:rotate-12">
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
               </svg>
@@ -77,7 +78,7 @@ export default function Navbar() {
                     <ChevronDown className="h-3 w-3 opacity-60" />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-36 rounded-xl p-1 bg-white border border-slate-200 text-black shadow-lg">
+                <DropdownMenuContent align="end" className="w-36 rounded-xl p-1 bg-white border border-slate-200 text-black">
                   <DropdownMenuItem 
                     onClick={() => changeLanguage('en')}
                     className={`rounded-lg cursor-pointer text-xs font-semibold hover:bg-slate-100 ${currentLang === 'en' ? 'bg-brand-blue/10 text-brand-blue' : 'text-slate-800'}`}
@@ -93,11 +94,11 @@ export default function Navbar() {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <Link to="/packages">
-                <Button className="bg-brand-blue text-white px-6 py-2 rounded-full font-bold shadow-lg shadow-brand-blue/20 hover:bg-brand-blue/90 transition-all hover:-translate-y-0.5 text-xs">
+              <BookingDialog type="package">
+                <Button className="bg-brand-blue text-white px-6 py-2 rounded-full font-bold hover:bg-brand-blue/90 transition-all text-xs border border-transparent">
                   {t('nav_book')}
                 </Button>
-              </Link>
+              </BookingDialog>
             </div>
           </div>
 
@@ -119,9 +120,9 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
+      {/* Mobile Dropdown Menu (no shadow) */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md absolute top-full left-0 right-0 p-6 border-t border-slate-200 shadow-2xl animate-in slide-in-from-top">
+        <div className="md:hidden bg-white/95 backdrop-blur-md absolute top-full left-0 right-0 p-6 border-t border-b border-slate-200 animate-in slide-in-from-top">
           <div className="flex flex-col gap-4 text-black">
             <Link to="/packages" onClick={() => setIsMobileMenuOpen(false)} className="text-base font-bold py-1 border-b border-slate-100 flex items-center justify-between hover:text-brand-blue">
               <span>{t('nav_packages')}</span>
@@ -141,11 +142,14 @@ export default function Navbar() {
             </Link>
 
             <div className="pt-2">
-              <Link to="/packages" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="bg-brand-blue text-white w-full py-3 rounded-full font-bold shadow-lg shadow-brand-blue/20 hover:bg-brand-blue/90">
+              <BookingDialog type="package">
+                <Button 
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="bg-brand-blue text-white w-full py-3 rounded-full font-bold hover:bg-brand-blue/90 border border-transparent"
+                >
                   {t('nav_book')}
                 </Button>
-              </Link>
+              </BookingDialog>
             </div>
           </div>
         </div>
